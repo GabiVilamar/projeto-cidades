@@ -6,8 +6,8 @@
     <title>Document</title>
     <link rel="stylesheet" href="estilos/style.css">
     <script>
+         
 
-        // document.getElementById("cidades").innerHTML = '';
 
         function mostraInfo(strUF) {
             console.log(strUF);
@@ -15,6 +15,7 @@
             if (strUF.length > 0) {
                 let xmlHttp = new XMLHttpRequest();
                 xmlHttp.onreadystatechange = function() {
+                    console.log(this.readyState);
 
                     if (this.readyState == 4 && this.status == 200) {
                         console.log(this.responseText);
@@ -25,10 +26,6 @@
                           let cities = document.getElementById("cidades");
                           let city = new Option(resposta[i], resposta[i]);
                           cities.options.add(city);
-                        // function reset() {
-                        //     let input = document.getElementById("cidades");
-                        //     input.disabled = false;
-                        //    }
                         }
                         document.querySelector("#cidades").disabled = false;
                     }
@@ -40,17 +37,20 @@
                 console.log("requisição enviada");
             }
         }
+        function clearOptions(params) {
+             document.querySelector("#cidades").innerHTML = '';
+         }  
 
     </script>
 </head>
 <body>
     <div class="container">
     <form action="">
-        <h3>Pesquise por municípios a partir da sigla de UF:</h3>
+        <h3>Pesquise por municípios a partir da sigla de UF</h3>
         <div class="center">
-        <input type="text" id="uf" name="uf" onchange="mostraInfo(this.value)">
+        <input type="text" id="uf" name="uf" onchange="mostraInfo(this.value)" onclick="clearOptions(this.value)">
         <br>
-        <select id="cidades" disabled ></select>
+        <select id="cidades" disabled></select>
     </div>
     </form>
 </div>

@@ -5,7 +5,13 @@ $database = "projeto-cidades";
 $username = "root";
 $password = "";
 // Create connection
-$conn = mysqli_connect($servername, $username, $password, $database);
+$conn =  mysqli_connect($servername, $username, $password, $database);
+
+// if (mysql_connect_error()):
+//     echo "Tivemos algum problema com o servidor :(".mysql_connect_error();
+// endif;
+
+
 // Check connection
 
     $estado = $_GET["estado"];
