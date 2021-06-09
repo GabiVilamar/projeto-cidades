@@ -30,6 +30,7 @@
                         //     input.disabled = false;
                         //    }
                         }
+                        document.querySelector("#cidades").disabled = false;
                     }
                 }
 
@@ -49,7 +50,7 @@
         <div class="center">
         <input type="text" id="uf" name="uf" onchange="mostraInfo(this.value)">
         <br>
-        <select id="cidades"></select>
+        <select id="cidades" disabled ></select>
     </div>
     </form>
 </div>
