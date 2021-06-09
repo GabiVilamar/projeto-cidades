@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    color: black;
+    background-color: rgb(70, 66, 66);
+    font-family: "Roboto","Open Sans","Roboto", monospace;
+    padding: 20px 200px;
+    font-weight: 500;
+}
+.container {
+    background-color: chocolate;
+    display: flex;
+    justify-content: center;
+    flex-direction: center;
+    padding: 80px;
+}
+.center {
+    display: flex;
+    height: 10rem;
+}
+#cidades, #uf{
+    border-radius: 5px;
+    width: 15rem;
+    height: 2rem;
+    padding: 4px;
+    margin: 8px;  
+}
+h3 {
+    margin-bottom: 2rem;
+}

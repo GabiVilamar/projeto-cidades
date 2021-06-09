@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilos/style.css">
+    <script>
+
+        // document.getElementById("cidades").innerHTML = '';
+
+        function mostraInfo(strUF) {
+            console.log(strUF);
+
+            if (strUF.length > 0) {
+                let xmlHttp = new XMLHttpRequest();
+                xmlHttp.onreadystatechange = function() {
+
+                    if (this.readyState == 4 && this.status == 200) {
+                        console.log(this.responseText);
+                        const conteudo = this.responseText;
+                        const resposta = JSON.parse(conteudo);
+                            console.log('até aqui');
+                        for(let i = 0; i <= resposta.length; i++) { 
+                          let cities = document.getElementById("cidades");
+                          let city = new Option(resposta[i], resposta[i]);
+                          cities.options.add(city);
+                        // function reset() {
+                        //     let input = document.getElementById("cidades");
+                        //     input.disabled = false;
+                        //    }
+                        }
+                    }
+                }
+
+                let url = "index.php?estado="; 
+                xmlHttp.open("GET", url + strUF, true);
+                xmlHttp.send('');
+                console.log("requisição enviada");
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div class="container">
+    <form action="">
+        <h3>Pesquise por municípios a partir da sigla de UF:</h3>
+        <div class="center">
+        <input type="text" id="uf" name="uf" onchange="mostraInfo(this.value)">
+        <br>
+        <select id="cidades"></select>
+    </div>
+    </form>
+</div>
+</body>
+</html>
